@@ -22,12 +22,13 @@ useEffect(() =>{
         const {data:{session}} = await supabase.auth.getSession();
 
         //Si existe sesion actualizamos el usuario con el nombre de usuario
-        if (session){
-            var nombre = session.user.user_metadata.name;
+        if (session && session.user){
+            var nombre = session.user.user_metadata.name || session.user.user_metadata.nombre;
             setUsuario(nombre);
         }
     }
     comprobarSesion();
+    
 },[]);
 
     //Funcion para ocultar y mostrar menu desplegable
@@ -54,7 +55,7 @@ useEffect(() =>{
 
                      <div className="offcanvas offcanvas-start" tabIndex={-1} id="offcanvasMenu">
                         <div className="offcanvas-header">
-                            <h5 className="offcanvas-title text-center w-100">Menu</h5>
+                            <h5 className="offcanvas-title text-center w-100">Menú</h5>
                             <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
                         </div>
 

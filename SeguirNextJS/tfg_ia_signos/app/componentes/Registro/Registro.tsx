@@ -40,7 +40,7 @@ async function sesionGoogle(){
     const {error} = await supabase.auth.signInWithOAuth({
         provider:"google",
         options:{
-            redirectTo:"http://tfg-amadeus.carlos-sanchez.dev"
+            redirectTo:"https://tfg-amadeus.carlos-sanchez.dev"
         }
     });
     
